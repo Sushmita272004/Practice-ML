@@ -60,7 +60,7 @@ print(l3[0:4])
 print(l3[2,0:4])
 print(l3[0:4,0:2])
 print(np.shape(l3))
-# no of rows and columns 
+#no of rows and columns 
 print(np.size(l3))
 #no. of elements in total
 #ndim= no. of dimensions #rows and columns
@@ -81,7 +81,7 @@ z=[10,20,30,40]
 plt.xlabel('Language',fontsize=15)
 plt.ylabel('Numbers',fontsize=15)
 plt.title('Assignment',fontsize=15)
-# for multi colors : col=['m','g','y','r']
+#for multi colors : col=['m','g','y','r']
 plt.bar(x,y,width=0.4,color='g',align='center',edgecolor='b',linewidth=2,linestyle='dotted',alpha=0.6,label='hacknitr')
 plt.legend()
 plt.legend()
