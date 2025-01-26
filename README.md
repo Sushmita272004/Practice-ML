@@ -130,3 +130,7 @@ plt.title("scatter plot",fontsize=15)
 size=[9,9,9,9,90,90,90,9,98]
 plt.scatter(x,y,color='g',edgecolor='b',s=size,linewidth=1.4,)
 plt.show()
+
+import sklearn
+from sklearn.datasets import load_iris
+load_iris()
