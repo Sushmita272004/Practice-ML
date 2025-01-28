@@ -134,3 +134,62 @@ plt.show()
 import sklearn
 from sklearn.datasets import load_iris
 load_iris()
+
+#python(bfs/dfs)
+from collections import deque
+
+def bfs(graph, start, target):
+    visited = set()
+    queue = deque([(start, [start])])
+    
+    while queue:
+        vertex, path = queue.popleft()
+        
+        if vertex == target:
+            return path
+        
+        for neighbor in graph[vertex]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append((neighbor, path + [neighbor]))
+    
+    return "No path found"
+
+def dfs(graph, start, target, path=None, visited=None):
+    if path is None:
+        path = [start]
+    if visited is None:
+        visited = set()
+    
+    visited.add(start)
+    
+    if start == target:
+        return path
+    
+    for neighbor in graph[start]:
+        if neighbor not in visited:
+            result = dfs(graph, neighbor, target, path + [neighbor], visited)
+            if result:
+                return result
+    
+    return "No path found"
+
+#Taking input from the user
+graph = {}
+num_nodes = int(input("Enter the number of nodes: "))
+for _ in range(num_nodes):
+    node = input("Enter the node: ")
+    neighbors = input(f"Enter the neighbors of {node} separated by space: ").split()
+    graph[node] = neighbors
+
+start_node = input("Enter the start node: ")
+target_node = input("Enter the target node: ")
+
+#Finding paths using BFS and DFS
+bfs_path = bfs(graph, start_node, target_node)
+dfs_path = dfs(graph, start_node, target_node)
+
+#Displaying the results
+print("BFS path (shortest path):", bfs_path)
+print("DFS path (any valid path):", dfs_path)
+
