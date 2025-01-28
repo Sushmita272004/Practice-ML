@@ -193,3 +193,14 @@ dfs_path = dfs(graph, start_node, target_node)
 print("BFS path (shortest path):", bfs_path)
 print("DFS path (any valid path):", dfs_path)
 
+import pandas as pd
+d={'Name':['Alice','Bob','Charlie','David'],'Age':[24,30,29,35],'City':['New York','Chicago','San Francisco','New York']}
+df=pd.DataFrame(d,index=[1,2,3,4])
+s=df[df['Age']>28]
+print("the data is :")
+print(df)
+print()
+print("the data with age greater than 28 is :")
+print(s)
+
+
