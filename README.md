@@ -259,5 +259,29 @@ from sklearn.metrics import r2_score
 r2 = r2_score(y_test, y_pred)
 print(f"R^2 Score: {r2:.2f}")
 
+input_numbers = input("Enter numbers separated by spaces: ").split()
+numbers = []
+for number in input_numbers:
+    numbers.append(int(number))
+l = []
+for number in numbers:
+    if number > 500:
+        break
+    if number > 150:
+        continue
+    if number % 5 == 0:
+        l.append(number)
+
+print(l)
+
+#ques 5 count total digits in a no. (while loop)
+
+number = int(input("Enter a number: "))
+count = 0
+while number != 0:
+    number //= 10  
+    count += 1   
+print("Total number of digits:", count)
+
 
 
