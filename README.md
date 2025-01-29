@@ -283,5 +283,32 @@ while number != 0:
     count += 1   
 print("Total number of digits:", count)
 
+#largest number among three
+a=int(input("enter the first number"))
+b=int(input("enter the second number"))
+c=int(input("enter the third number"))
+if a>b and a>c :
+    print("the largest no. is ",a)
+elif b>a and b>c :
+    print("the largest no. is ",b)
+else:
+    print(c)
+
+#reverse a string
+s=str(input("enter a word"))
+d=s[::-1]
+print(d)
+
+#fibonacci sequence
+num=int(input("enter how many terms?"))
+a,b=0,1
+count=0
+while count<num:
+    print(a)
+    c=a+b
+    a=b
+    b=c
+    count+=1
+
 
 
