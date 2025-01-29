@@ -1,4 +1,6 @@
 # Practice-ML
+
+# 1
 #PANDAS
 import pandas as pd
 dict={'name':['sushmita','saloni','aliva','avisya'],'age':[23,21,20,22]}
@@ -131,6 +133,7 @@ size=[9,9,9,9,90,90,90,9,98]
 plt.scatter(x,y,color='g',edgecolor='b',s=size,linewidth=1.4,)
 plt.show()
 
+# 2
 import sklearn
 from sklearn.datasets import load_iris
 load_iris()
@@ -202,5 +205,59 @@ print(df)
 print()
 print("the data with age greater than 28 is :")
 print(s)
+# 3
+import pandas as pd
+import numpy as np
+
+np.random.seed(0)
+
+data_size = 500
+data = {
+    'ID': range(1, data_size + 1),
+    'TV': np.random.rand(data_size) * 100,  
+    'Radio': np.random.rand(data_size) * 100,  
+    'Newspaper': np.random.rand(data_size) * 100, 
+    'Sales': np.random.rand(data_size) * 50 + 10 
+}
+sales_data = pd.DataFrame(data)
+
+print(sales_data.head())
+
+from sklearn.model_selection import train_test_split
+
+X = sales_data[['TV', 'Radio', 'Newspaper']]
+y = sales_data['Sales']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
+
+
+print("Training set (X):")
+print(X_train.head())
+print("\nTesting set (X):")
+print(X_test.head())
+
+print("\nTraining set (y):")
+print(y_train.head())
+print("\nTesting set (y):")
+print(y_test.head())
+
+from sklearn.linear_model import LinearRegression
+
+model = LinearRegression()
+
+model.fit(X_train, y_train)
+
+print("Coefficients:")
+print(model.coef_)
+print("\nIntercept:")
+print(model.intercept_)
+
+y_pred = model.predict(X_test)
+
+from sklearn.metrics import r2_score
+
+r2 = r2_score(y_test, y_pred)
+print(f"R^2 Score: {r2:.2f}")
+
 
 
